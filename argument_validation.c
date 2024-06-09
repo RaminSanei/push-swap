@@ -31,7 +31,7 @@ void	ft_memory_free(char *str[])
 	free(str);
 }
 
-int	ft_is_it_repeated(int num, char **argv, int i)
+int	ft_is_it_repeated(int num, char *argv[], int i)
 {
 	i++;
 	while (argv[i])
@@ -77,11 +77,11 @@ void	ft_check_arguments(int argc, char *argv[])
 	{
 		temp = ft_atoi(args[i]);
 		if (!ft_is_it_number(temp))
-			ft_error("there is a invalid input");
+			ft_error("Error");
 		if (ft_is_it_repeated(temp, args, i))
-			ft_error("repeated number not permited");
+			ft_error("Error");
 		if (temp < MIN_LONG || temp > MAX_LONG)
-			ft_error("out of range");
+			ft_error("Error");
 		i++;
 	}
 	if (argc == 2)

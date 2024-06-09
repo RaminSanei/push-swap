@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssanei <ssanei@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 10:30:36 by ssanei            #+#    #+#             */
-/*   Updated: 2024/05/31 15:40:29 by ssanei           ###   ########.fr       */
+/*   Updated: 2024/06/09 18:53:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void	ft_free_stack(t_list **stack)
 	free(stack);
 }
 
-void Stacks_allocation(t_list **stackA, t_list **stackB, int argc, char *argv[]) {
+void stacks_allocation(t_list **stackA, t_list **stackB, int argc, char *argv[]) {
     *stackA = (t_list *)malloc(sizeof(t_list));
     *stackB = (t_list *)malloc(sizeof(t_list));
     initial_Stack(stackA, argc, argv);
+		// init_stack_indexes(stackA);
+
 }
 
 int	main(int argc, char *argv[])
@@ -58,7 +60,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (-1);
 	ft_check_arguments(argc, argv);
-	Stacks_allocation(&stackA, &stackB, argc, argv);
+	stacks_allocation(&stackA, &stackB, argc, argv);
 	if (ft_is_sorted(&stackA))
 	{
 		ft_free_stack(&stackA);

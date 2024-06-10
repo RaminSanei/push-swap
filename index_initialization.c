@@ -29,7 +29,7 @@ int	*ft_bubblesort(int *arr, int size)
 {
 	int	i;
 	int	j;
-	int	tmp;
+	int	temp;
 
 	i = 0;
 	while (i < size)
@@ -39,9 +39,9 @@ int	*ft_bubblesort(int *arr, int size)
 		{
 			if (j + 1 < size && arr[j] > arr[j + 1])
 			{
-				tmp = arr[j + 1];
+				temp = arr[j + 1];
 				arr[j + 1] = arr[j];
-				arr[j] = tmp;
+				arr[j] = temp;
 			}
 			j++;
 		}

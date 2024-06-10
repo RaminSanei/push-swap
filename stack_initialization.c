@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_list	*ft_new_list(int data)
+static t_list	*ft_new_list(int data)
 {
 	t_list	*new;
 
@@ -25,7 +25,7 @@ t_list	*ft_new_list(int data)
 	return (new);
 }
 
-t_list	*ft_list_last(t_list *head)
+static t_list	*ft_list_last(t_list *head)
 {
 	t_list	*tmp;
 
@@ -39,7 +39,7 @@ t_list	*ft_list_last(t_list *head)
 	return (tmp);
 }
 
-void	ft_add_last_node(t_list **stack, t_list *new)
+static void	ft_add_last_node(t_list **stack, t_list *new)
 {
 	t_list	*n;
 
@@ -76,7 +76,6 @@ void	initial_Stack(t_list **stack, int argc, char *argv[])
 		ft_add_last_node(stack, new);
 		i++;
 	}
-	// init_stack_indexes(stack);
 	if (argc == 2)
 		ft_memory_free(args);
 }

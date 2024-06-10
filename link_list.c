@@ -26,3 +26,62 @@ int	ft_listsize(t_list *head)
 	}
 	return (i);
 }
+
+void	ft_listshift_left(t_list **lst)
+{
+	t_list	*node;
+
+	if (!lst || !(*lst) || !((*lst)->next))
+		return ;
+	node = *lst;
+	while (node->next)
+		node = node->next;
+	node->next = *lst;
+	*lst = (*lst)->next;
+	node->next->next = NULL;
+}
+
+void	ft_listshift_right(t_list **lst)
+{
+	t_list	*node;
+
+	if (!lst || !(*lst) || !((*lst)->next))
+		return ;
+	node = *lst;
+	while (node->next)
+		node = node->next;
+	node->next = *lst;
+	*lst = node;
+	node = *lst;
+	while (node->next != *lst)
+		node = node->next;
+	node->next = NULL;
+}
+
+void	ft_listadd_front(t_list **lst, t_list *new)
+{
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
+}
+
+void	ft_listadd_back(t_list **lst, t_list *new)
+{
+	t_list	*back;
+
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	back = *lst;
+	while (back->next != NULL)
+	{
+		back = back->next;
+	}
+	back->next = new;
+}
